@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/setting_nav"
+        android:title="الضبط"
+        android:actionLayout="@layout/setting_fragment"
+        android:icon="@drawable/ic_settings"/>
+    <item android:id="@+id/auction_nav"
+        android:title="المستشفيات"
+        android:actionLayout="@layout/activity_hospital"
+        android:icon="@drawable/ic_hospital_"/>
+    <item android:id="@+id/home_nav"
+        android:title="الرئيسية"
+        android:actionLayout="@layout/activity_home"
+        android:icon="@drawable/ic_home"/>
+
+
+
+</menu>
