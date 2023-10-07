@@ -131,11 +131,29 @@
                     tools:ignore="RtlHardcoded,UseCompoundDrawables">
 
                     <TextView
-                        android:id="@+id/splize"
+                        android:id="@+id/address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:text="@{listItem.address}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
+                        app:layout_constraintEnd_toStartOf="@+id/imaeView4"
+                        app:layout_constraintTop_toTopOf="@+id/imaeView4"
+                        app:layout_constraintVertical_bias="0.333"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="  |  "
+                        app:layout_constraintVertical_bias="0.333"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/local"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="{listItem.local}"
                         app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
                         app:layout_constraintEnd_toStartOf="@+id/imaeView4"
                         app:layout_constraintTop_toTopOf="@+id/imaeView4"

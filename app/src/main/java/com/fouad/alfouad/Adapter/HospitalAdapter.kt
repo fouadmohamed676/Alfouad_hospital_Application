@@ -30,6 +30,7 @@ class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Ad
 
         fun bind(hospital: Hospital){
             binding.splizeetion.text=hospital.hospitals.getString("name")
+            binding.local.text=hospital.local_hospital.getString("name")
             if (hospital.status=="1"){
                 binding.imgStatus.setColorFilter(Color.GREEN)
                 binding.status.text="يعمل"
@@ -38,7 +39,12 @@ class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Ad
                 binding.status.text="لا يعمل"
             }
             binding.listItem= hospital
+            itemView.setOnClickListener{
+                Log.e("Click",hospital.id)
+            }
         }
+
+
     }
 
 
