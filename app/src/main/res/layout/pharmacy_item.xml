@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="listItem"
+            type="com.fouad.alfouad.Pharmacy"/>
+    </data>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        tools:ignore="RtlHardcoded">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_current"
+            android:orientation="horizontal"
+            android:gravity="right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="DisableBaselineAlignment,MissingConstraints,RtlHardcoded,UselessParent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="right"
+                android:gravity="right"
+                tools:ignore="InefficientWeight,RtlHardcoded,UselessParent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/name_hospital"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@{listItem.name}"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <ImageView
+                        android:id="@+id/img_status"
+                        android:layout_width="20sp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_margin="3dp"
+                        app:srcCompat="@drawable/ic_lens"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:text="{listItem.status}"
+                        app:layout_constraintBottom_toBottomOf="@+id/img_status"
+                        app:layout_constraintStart_toEndOf="@+id/img_status"
+                        app:layout_constraintTop_toTopOf="@+id/img_status"
+                        app:layout_constraintVertical_bias="0.333"
+                        tools:ignore="HardcodedText" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                    app:layout_constraintVertical_bias="0.5"
+                    tools:ignore="RtlHardcoded,UseCompoundDrawables">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="8dp"
+                        android:text="@{listItem.phone}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageVie4"
+                        app:layout_constraintEnd_toStartOf="@+id/imageVie4"
+                        app:layout_constraintTop_toTopOf="@+id/imageVie4"
+                        app:layout_constraintVertical_bias="0.333"
+                        tools:ignore="HardcodedText,RtlHardcoded" />
+                    <ImageView
+                        android:id="@+id/imageVie4"
+                        android:layout_width="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_call_reg"
+                        tools:ignore="ContentDescription" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlHardcoded,UseCompoundDrawables">
+
+                    <TextView
+                        android:id="@+id/splize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@{listItem.title}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
+                        app:layout_constraintEnd_toStartOf="@+id/imaeView4"
+                        app:layout_constraintTop_toTopOf="@+id/imaeView4"
+                        app:layout_constraintVertical_bias="0.333"
+                        tools:ignore="HardcodedText" />
+                    <ImageView
+                        android:id="@+id/imaeView4"
+                        android:layout_width="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_location_"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/constraintLayout_"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlHardcoded,UseCompoundDrawables">
+                    <TextView
+                        android:id="@+id/time_"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="{listItem.time}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
+                        app:layout_constraintEnd_toStartOf="@+id/imaeView4"
+                        app:layout_constraintTop_toTopOf="@+id/imaeView4"
+                        app:layout_constraintVertical_bias="0.333"
+                        tools:ignore="HardcodedText" />
+                    <ImageView
+                        android:id="@+id/s"
+                        android:layout_width="20sp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_tag"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
