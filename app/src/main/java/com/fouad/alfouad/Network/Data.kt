@@ -9,7 +9,8 @@ object Data {
     const val show_hospital= url+"hospital/show"
     const val show_clink= url+"clink/show"
     const val show_pharmacy= url+"pharmacy/show"
-    const val hospital_doctors="http://192.168.137.1:8000/hospital/hospitalDoctor/2"//doctors working in this hospital
+    const val staff_pharmacy="http://192.168.137.1:8000/pharmacy/staff_pharmacy_/12"
+    const val hospital_doctors="http://192.168.137.1:8000/hospital/hospitalDoctor/"//doctors working in this hospital
     const val login= api+"login.php"
     const val register= api+"register.php"
 

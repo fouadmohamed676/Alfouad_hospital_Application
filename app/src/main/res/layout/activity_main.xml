@@ -38,7 +38,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:layout_margin="10dp"
-            android:src="@drawable/bg_image"/>
+            android:src="@drawable/png_register_logo"/>
 
 
         <com.google.android.material.textfield.TextInputLayout

@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             Toast.makeText(this, "ادخل رقم الهاتف", Toast.LENGTH_SHORT).show()
         }
 
-        val urlData = Data.login
         val queue = Volley.newRequestQueue(this)
 
         val request: StringRequest =

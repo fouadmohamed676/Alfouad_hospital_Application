@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Fragment.SettingFragment">
 
@@ -72,7 +73,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="120sp"
                 android:layout_height="120sp"
-                android:src="@drawable/ic_person_reg"
+                android:src="@drawable/png_register_logo"
                 android:layout_margin="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -86,7 +87,7 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/jana"
                 android:gravity="right"
-                android:text="name"
+                android:text="Fouad Mohamed"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -106,7 +107,7 @@
                 android:fontFamily="@font/jana"
                 android:gravity="right"
                 android:padding="2dp"
-                android:text="phone"
+                android:text="foud@gamil.com"
                 android:textColor="@color/purple_200"
                 android:textSize="15dp"
                 android:textStyle="bold"
@@ -126,14 +127,6 @@
             android:padding="5dp"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_tag_black"
-                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/myAdds"
@@ -150,6 +143,14 @@
                 android:textStyle="bold"
                 tools:ignore="HardcodedText,RtlHardcoded" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:foregroundGravity="right"
+                android:padding="3dp"
+                android:src="@drawable/ic_tag_black"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 
@@ -172,14 +173,7 @@
             tools:ignore="UseCompoundDrawables">
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_credit_card"
-                tools:ignore="ContentDescription" />
+
 
             <TextView
                 android:id="@+id/plance_account"
@@ -195,7 +189,14 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:foregroundGravity="right"
+                android:padding="3dp"
+                android:src="@drawable/ic_credit_card"
+                tools:ignore="ContentDescription" />
         </LinearLayout>
 
         <View
@@ -215,14 +216,6 @@
             android:padding="5dp"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_timer"
-                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/portfolio"
@@ -238,6 +231,15 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:foregroundGravity="right"
+                android:padding="3dp"
+                android:src="@drawable/ic_timer"
+                tools:ignore="ContentDescription" />
+
         </LinearLayout>
 
         <View
@@ -257,14 +259,6 @@
             android:padding="5dp"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_shopping"
-                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/purcheses"
@@ -280,6 +274,14 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:foregroundGravity="right"
+                android:padding="3dp"
+                android:src="@drawable/ic_shopping"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 
@@ -302,14 +304,6 @@
             android:padding="5dp"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_info"
-                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/about"
@@ -325,6 +319,14 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:foregroundGravity="right"
+                android:padding="3dp"
+                android:src="@drawable/ic_info"
+                tools:ignore="ContentDescription" />
 
         </LinearLayout>
 
@@ -346,14 +348,6 @@
             android:padding="5dp"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_logout_24"
-                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/log_out"
@@ -367,6 +361,16 @@
                 android:textColor="@color/red"
                 android:textStyle="bold"
                 tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:foregroundGravity="right"
+                android:padding="3dp"
+                android:src="@drawable/ic_logout_24"
+                tools:ignore="ContentDescription" />
+
         </LinearLayout>
     </LinearLayout>
 

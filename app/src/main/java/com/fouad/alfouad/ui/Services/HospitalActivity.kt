@@ -72,7 +72,6 @@ private  fun setupLayout(){
                                 adapter = HospitalAdapter(hospitalList)
                                 binding.hospitalRecycler.adapter = adapter
                                 hospitalList.add(hospital)
-//                            }
                             }
 
                         } catch (e: JSONException) {

@@ -1,5 +1,6 @@
 package com.fouad.alfouad.Adapter
 
+import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fouad.alfouad.Hospital
 import com.fouad.alfouad.databinding.HospitalItemBinding
+import com.fouad.alfouad.ui.Services.Details.HospitalDetailsActivity
 
 class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Adapter<HospitalAdapter.HospitalViewHolder>(){
 
@@ -39,9 +41,20 @@ class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Ad
                 binding.status.text="لا يعمل"
             }
             binding.listItem= hospital
-            itemView.setOnClickListener{
-                Log.e("Click",hospital.id)
+
+            binding.btnDoctors.setOnClickListener{
+                Log.e("Hospital id",hospital.id)
+                val intent = Intent(itemView.context, HospitalDetailsActivity::class.java)
+                intent.putExtra("id",hospital.id)
+                itemView.context.startActivity(intent)
             }
+
+//            itemView.setOnClickListener{
+//                Log.e("Hospital id",hospital.id)
+//                val intent = Intent(itemView.context, HospitalDetailsActivity::class.java)
+//                intent.putExtra("id",hospital.id)
+//                itemView.context.startActivity(intent)
+//            }
         }
 
 

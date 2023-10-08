@@ -27,6 +27,10 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150sp"
+            android:src="@drawable/png_hos"/>
 
 
         <ScrollView
@@ -34,53 +38,12 @@
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <GridLayout
+                 <GridLayout
+                android:layout_marginTop="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:columnCount="2"
                 android:rowCount="3">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/doc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_rowWeight="1"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="9dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="8dp">
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical"
-
-                        >
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:src="@drawable/ic_email_" />
-
-                        <Button
-                            android:id="@+id/genral"
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:text="التحويلات"
-                            android:textColor="#fff"
-                            android:backgroundTint="#110022"
-                            android:textStyle="bold">
-
-                        </Button>
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -100,9 +63,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical|center_horizontal"
                         android:gravity="center"
-                        android:orientation="vertical"
-
-                        >
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="120dp"
@@ -119,46 +80,6 @@
                             android:text="المرضي"
                             android:textColor="#fff"
                             android:backgroundTint="#110022"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_rowWeight="1"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="8dp">
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical"
-
-                        >
-
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
-                            android:src="@drawable/ic_hospital">
-
-                        </ImageView>
-
-                        <Button
-                            android:id="@+id/hospital_btn"
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:text="المستشفيات"
-                            android:backgroundTint="#110022"
-                            android:textColor="#fff"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

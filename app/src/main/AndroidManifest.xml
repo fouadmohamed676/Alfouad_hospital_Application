@@ -21,6 +21,7 @@
         <activity android:name=".ui.Services.HospitalActivity"/>
         <activity android:name=".ui.Services.ClinkActivity"/>
         <activity android:name=".ui.Services.PharmacyActivity"/>
+        <activity android:name=".ui.Services.Details.HospitalDetailsActivity"/>
         <activity android:name=".ui.Validate.RegisterActivity"/>
         <activity android:name=".Fragment.HomeFragment"/>
         <activity android:name=".ui.Validate.MainActivity"
