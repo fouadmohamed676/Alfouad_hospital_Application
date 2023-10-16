@@ -48,13 +48,6 @@ class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Ad
                 intent.putExtra("id",hospital.id)
                 itemView.context.startActivity(intent)
             }
-
-//            itemView.setOnClickListener{
-//                Log.e("Hospital id",hospital.id)
-//                val intent = Intent(itemView.context, HospitalDetailsActivity::class.java)
-//                intent.putExtra("id",hospital.id)
-//                itemView.context.startActivity(intent)
-//            }
         }
 
 

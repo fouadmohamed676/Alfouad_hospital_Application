@@ -34,6 +34,7 @@ class HospitalActivity :AppCompatActivity(R.layout.activity_hospital){
         getData()
 
     }
+
 private  fun setupLayout(){
 
     manager=LinearLayoutManager(this)

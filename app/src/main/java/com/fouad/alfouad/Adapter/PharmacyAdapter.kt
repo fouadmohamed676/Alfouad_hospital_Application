@@ -44,9 +44,9 @@ class PharmacyAdapter(private val clinkList: List<Pharmacy>):RecyclerView.Adapte
 
             itemView.setOnClickListener {
                 Log.e("OnClick : ","id : "+pharmacy.id +"name : ${pharmacy.name}")
-                val intent =Intent(itemView.context,HospitalActivity::class.java)
-                intent.putExtra("id",pharmacy.id)
-               itemView.context.startActivity(intent)
+//                val intent =Intent(itemView.context,HospitalActivity::class.java)
+//                intent.putExtra("id",pharmacy.id)
+//               itemView.context.startActivity(intent)
             }
 
         }
