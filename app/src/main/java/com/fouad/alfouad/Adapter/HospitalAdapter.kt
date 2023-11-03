@@ -6,11 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.fouad.alfouad.Hospital
+import com.fouad.alfouad.HospitalPojoO
 import com.fouad.alfouad.databinding.HospitalItemBinding
 import com.fouad.alfouad.ui.Services.Details.HospitalDetailsActivity
 
-class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Adapter<HospitalAdapter.HospitalViewHolder>(){
+class HospitalAdapter(private val hospital_list: List<HospitalPojoO>)
+
+    :RecyclerView.Adapter<HospitalAdapter.HospitalViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalViewHolder {
@@ -22,18 +24,17 @@ class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Ad
         holder.bind(hospital_list[position])
 
     }
-    override fun getItemCount(): Int {
-       return hospital_list.size
-    }
-
+    override fun getItemCount()=hospital_list.size
 
     inner class HospitalViewHolder(val binding:HospitalItemBinding) : RecyclerView.ViewHolder(binding.root){
 
 
-        fun bind(hospital: Hospital){
-            binding.splizeetion.text=hospital.hospitals.getString("name")
-            binding.local.text=hospital.local_hospital.getString("name")
-            if (hospital.status=="1"){
+        fun bind(hospital: HospitalPojoO){
+
+            binding.splizeetion.text=hospital.hospitals?.name
+            binding.local.text=hospital.localHospital?.name
+
+            if (hospital.status?.equals("1")!!){
                 binding.imgStatus.setColorFilter(Color.GREEN)
                 binding.status.text="يعمل"
             }else{
@@ -43,9 +44,11 @@ class HospitalAdapter(private val hospital_list: List<Hospital>):RecyclerView.Ad
             binding.listItem= hospital
 
             binding.btnDoctors.setOnClickListener{
-                Log.e("Hospital id",hospital.id)
                 val intent = Intent(itemView.context, HospitalDetailsActivity::class.java)
-                intent.putExtra("id",hospital.id)
+                intent.putExtra("id",hospital.id.toString())
+
+                Log.e("Hospital id", hospital.id.toString())
+
                 itemView.context.startActivity(intent)
             }
         }

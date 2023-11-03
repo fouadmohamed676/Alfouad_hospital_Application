@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fouad.alfouad.Clinck
+import com.fouad.alfouad.ClinkResponse
 import com.fouad.alfouad.databinding.ClincItemBinding
 
-class ClinkAdapter(private val clinkList: List<Clinck>):RecyclerView.Adapter<ClinkAdapter.ClinkViewHolder>() {
+class ClinkAdapter(private val clinkList: List<ClinkResponse>):RecyclerView.Adapter<ClinkAdapter.ClinkViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClinkViewHolder {
 
@@ -27,9 +28,9 @@ class ClinkAdapter(private val clinkList: List<Clinck>):RecyclerView.Adapter<Cli
 
     }
     class ClinkViewHolder(val binding: ClincItemBinding):RecyclerView.ViewHolder(binding.root){
-         fun bind(clink: Clinck){
-             binding.local.text=clink.local.getString("name")
-             if (clink.status=="1"){
+         fun bind(clink: ClinkResponse){
+             binding.local.text=clink.local?.name
+             if (clink.status!!.equals("1")){
                  binding.status.text="يعمل"
              }else{
                  binding.imgStatus.setColorFilter(Color.RED)

@@ -31,8 +31,8 @@ class HospitalActivity :AppCompatActivity(R.layout.activity_hospital){
         setContentView(binding.root)
 
         setupLayout()
-        getData()
-
+//        getData()
+//            data()
     }
 
 private  fun setupLayout(){
@@ -44,6 +44,16 @@ private  fun setupLayout(){
     binding.hospitalRecycler.setHasFixedSize(true)
 }
 
+//    private  fun data(){
+//        val quotesApi = RetrofitHelper.getInstance().create(ApiInterface::class.java)
+//        // launching a new coroutine
+//        GlobalScope.launch {
+//            val result = quotesApi.getHospitals()
+//            if (result != null)
+//            // Checking the results
+//                Log.d("result : ", result.toString())
+//        }
+//    }
     private fun getData() {
         val queue = Volley.newRequestQueue(this@HospitalActivity)
         val request: StringRequest =
@@ -70,9 +80,9 @@ private  fun setupLayout(){
                                     jsonObjectDetails.getJSONObject("local_hospital"),
                                     jsonObjectDetails.getJSONObject("hospitals"),
                                 )
-                                adapter = HospitalAdapter(hospitalList)
-                                binding.hospitalRecycler.adapter = adapter
-                                hospitalList.add(hospital)
+//                                adapter = HospitalAdapter(this.applicationContext,hospitalList)
+//                                binding.hospitalRecycler.adapter = adapter
+//                                hospitalList.add(hospital)
                             }
 
                         } catch (e: JSONException) {

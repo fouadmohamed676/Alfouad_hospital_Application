@@ -2,7 +2,9 @@
 
 package com.fouad.alfouad.Fragment
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -18,11 +22,17 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.fouad.alfouad.Adapter.HospitalAdapter
 import com.fouad.alfouad.Hospital
+import com.fouad.alfouad.HospitalPojoO
 import com.fouad.alfouad.Network.Data
 import com.fouad.alfouad.R
+import com.fouad.alfouad.ViewModel.HospitalViewModel
 import com.fouad.alfouad.databinding.HospitalFragmentBinding
 import org.json.JSONException
 import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Suppress("DEPRECATION")
 class HospitalFragment:Fragment(R.layout.hospital_fragment) {
@@ -31,17 +41,24 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
    lateinit var progressDialog:ProgressDialog
     private lateinit var manager : RecyclerView.LayoutManager
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private  val hospitalList: ArrayList<Hospital> = ArrayList()
     private lateinit var adapter: HospitalAdapter
+    private lateinit var viewModel: HospitalViewModel
+    private val blogHospital = mutableListOf<HospitalPojoO>()
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=HospitalFragmentBinding.inflate(layoutInflater)
 
+        binding=HospitalFragmentBinding.inflate(layoutInflater)
+        viewModel = ViewModelProvider(this).get(HospitalViewModel::class.java)
         progressDialog = ProgressDialog(activity)
-        Log.e("","onCreate")
-        getData()
+
+        response()
     }
+    @SuppressLint("NotifyDataSetChanged")
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,71 +67,42 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
     ): View? {
         val  view:View=inflater.inflate(R.layout.hospital_fragment,container,false)
         binding=HospitalFragmentBinding.bind(view)
-        Log.e("","onCreateView")
         return view
     }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.e("","onActivityCreated")
         setupLayout()
-//        binding.recyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
     }
 
     private  fun setupLayout(){
-
         manager= LinearLayoutManager(activity)
         layoutManager= LinearLayoutManager(activity)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.recyclerView.layoutManager = layoutManager
         binding.recyclerView.setHasFixedSize(true)
     }
-    private fun getData() {
-        val queue = Volley.newRequestQueue(this.context)
-        val request: StringRequest =
-            object :
-                StringRequest(Request.Method.GET, Data.show_hospital,
-                    Response.Listener<String?> { response ->
-                        try {
-                            Log.e("Response", response)
 
-                            val jsonObject   = response?.let { JSONObject(it) }
-                            val jsonArrayInfo = jsonObject?.getJSONArray("response")
-                            val size: Int = jsonArrayInfo?.length()!!
-                            Log.e("status","$jsonArrayInfo")
 
-                            for (i in 0 until size) {
-                                val jsonObjectDetails: JSONObject = jsonArrayInfo.getJSONObject(i)
-                                val hospital = Hospital(
-                                    jsonObjectDetails.getString("id"),
-                                    jsonObjectDetails.getString("dis"),
-                                    jsonObjectDetails.getString("address"),
-                                    jsonObjectDetails.getString("phone"),
-                                    jsonObjectDetails.getString("status"),
-                                    jsonObjectDetails.getString("local_id"),
-                                    jsonObjectDetails.getJSONObject("local_hospital"),
-                                    jsonObjectDetails.getJSONObject("hospitals"),
-                                )
-                                adapter = HospitalAdapter(hospitalList)
-                                binding.recyclerView.adapter = adapter
-                                hospitalList.add(hospital)
-                            }
 
-                        } catch (e: JSONException) {
-                            e.printStackTrace()
-                        }
-                    }, Response.ErrorListener { error ->
-                        // displaying toast message on response failure.
-                        Log.e("Error Response", "error is " + error!!.message)
-                        Toast.makeText(this.context, "Fail to get data..", Toast.LENGTH_SHORT)
-                            .show()
-                    }){}
+    @SuppressLint("NotifyDataSetChanged")
+    fun response (){
+        viewModel.hospitals.observe(this, Observer {
+                hospitals->
 
-        queue.add(request)
-        queue.cache
+            Log.e(TAG,"MVVM RESPONSE $hospitals")
+
+            blogHospital.addAll(hospitals)
+
+            adapter = HospitalAdapter(hospitals)
+            adapter.notifyDataSetChanged()
+            binding.recyclerView.adapter = adapter
+
+        })
+        viewModel.getHospitals()
     }
 
-
-
 }
+
+
