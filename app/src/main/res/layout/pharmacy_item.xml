@@ -2,11 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <variable
-            name="listItem"
-            type="com.fouad.alfouad.Pharmacy"/>
-    </data>
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="listItem"-->
+<!--            type=/>-->
+<!--    </data>-->
+
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -48,7 +49,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="@{listItem.name}"
+                        android:text="{listItem.name}"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_marginEnd="8dp"
-                        android:text="@{listItem.phone}"
+                        android:text="{listItem.phone}"
                         app:layout_constraintBottom_toBottomOf="@+id/imageVie4"
                         app:layout_constraintEnd_toStartOf="@+id/imageVie4"
                         app:layout_constraintTop_toTopOf="@+id/imageVie4"
@@ -135,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:text="@{listItem.title}"
+                        android:text="{listItem.title}"
                         app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
                         app:layout_constraintEnd_toStartOf="@+id/imaeView4"
                         app:layout_constraintTop_toTopOf="@+id/imaeView4"

@@ -6,13 +6,14 @@
     <data>
         <variable
             name="listItem"
-            type="com.fouad.alfouad.HospitalPojoO"/>
+            type="com.fouad.alfouad.Response"/>
     </data>
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical"
         android:gravity="right"
+
         android:layout_width="match_parent"
         tools:ignore="RtlHardcoded">
         <LinearLayout
@@ -153,7 +154,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:text="{listItem.local}"
+                        android:text="@{listItem.local.name}"
                         app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
                         app:layout_constraintEnd_toStartOf="@+id/imaeView4"
                         app:layout_constraintTop_toTopOf="@+id/imaeView4"
@@ -199,7 +200,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:text="{listItem.hospitals}"
+                        android:text="@{listItem.specialization.name}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/s"
                         app:layout_constraintTop_toTopOf="@+id/s"

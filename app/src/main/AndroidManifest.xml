@@ -23,6 +23,8 @@
         <activity android:name=".ui.Services.PharmacyActivity"/>
         <activity android:name=".ui.Services.Details.HospitalDetailsActivity"/>
         <activity android:name=".ui.Validate.RegisterActivity"/>
+        <activity android:name=".user.Add_InterView"/>
+        <activity android:name=".ui.Services.DoctorInterView"/>
         <activity android:name=".Fragment.HomeFragment"/>
         <activity android:name=".ui.Validate.MainActivity"
             tools:ignore="MissingClass" />

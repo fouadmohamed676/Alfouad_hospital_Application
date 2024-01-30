@@ -2,19 +2,16 @@ package com.fouad.alfouad.Network
 
 object Data {
 
-//    private const val baseURL: String = "http://192.168.43.114/"  //http://192.168.43.114:8000/
-    private const val baseURL: String = "http://192.168.137.1/"  //http://192.168.43.114:8000/
-    const val Base_Url_Api="http://192.168.43.114:8000/api/" //http://192.168.43.114:8000/api/hospital/show
-//    const val Base_Url_Api="http://192.168.43.114:8000/api/"
-    private const val api= baseURL+"apis/"
-    const val user = baseURL+"user/"
-    const val show_hospital= Base_Url_Api+"hospital/show"
-    const val show_hospital_retrofit= Base_Url_Api+"hospital/show"
-    const val show_clink= Base_Url_Api+"clink/show"
-    const val show_pharmacy= Base_Url_Api+"pharmacy/show"
-    const val staff_pharmacy="http://192.168.43.114:8000/pharmacy/staff_pharmacy_/12"
-    const val hospital_doctors="http://192.168.43.114:8000/hospital/hospitalDoctor/"//doctors working in this hospital
-    const val login= Base_Url_Api+"user/"
+    private const val baseURL: String = "http://192.168.174.55/"  //http://192.168.43.114:8000/
+    const val Base_Url_Api="http://192.168.174.55:8000/api/" //http://192.168.43.114:8000/api/hospital/show
+    private const val api= baseURL+"api/"
+    const val hospitalBojo= api+"hospital"
+    const val port= baseURL+"8000/"
+    const val show_hospital= api+"hospital/"
+    const val show_pharmacy= api+"pharmacy"
+    const val hospital_doctors="http://192.168.1.228:8000/hospital/show_pharmacy/"//doctors working in this hospital
+    const val login= baseURL+"apis/login.php"
+    const val interviews= api+"api/"
     const val register= api+"register.php"
 
 }

@@ -4,36 +4,25 @@ package com.fouad.alfouad.Fragment
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
-import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.fouad.alfouad.Adapter.HospitalAdapter
-import com.fouad.alfouad.Hospital
-import com.fouad.alfouad.HospitalPojoO
-import com.fouad.alfouad.Network.Data
+import com.fouad.alfouad.Response
 import com.fouad.alfouad.R
 import com.fouad.alfouad.ViewModel.HospitalViewModel
 import com.fouad.alfouad.databinding.HospitalFragmentBinding
-import org.json.JSONException
-import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.fouad.alfouad.ui.Services.Details.HospitalDetailsActivity
 
+const val EXTRA="EXTRA"
 @Suppress("DEPRECATION")
 class HospitalFragment:Fragment(R.layout.hospital_fragment) {
 
@@ -43,7 +32,7 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var adapter: HospitalAdapter
     private lateinit var viewModel: HospitalViewModel
-    private val blogHospital = mutableListOf<HospitalPojoO>()
+    private val blogHospital = mutableListOf<Response>()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,11 +43,9 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
         progressDialog = ProgressDialog(activity)
 
         response()
+
     }
     @SuppressLint("NotifyDataSetChanged")
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -84,21 +71,26 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
         binding.recyclerView.setHasFixedSize(true)
     }
 
-
-
     @SuppressLint("NotifyDataSetChanged")
+
     fun response (){
         viewModel.hospitals.observe(this, Observer {
+
                 hospitals->
-
-            Log.e(TAG,"MVVM RESPONSE $hospitals")
-
             blogHospital.addAll(hospitals)
+            adapter = HospitalAdapter(this.requireContext(),hospitals)
+//                object :HospitalAdapter.ItemClickListener{
+//                override fun onItemClickListener(hospital: Response) {
+//                    val intent = Intent(requireContext(), HospitalDetailsActivity::class.java)
+//                    intent.putExtra(EXTRA,hospital)
+//                    Log.e("hhhhhhhh","gg $hospitals")
+//                    startActivity(intent)
+//
+//                }
 
-            adapter = HospitalAdapter(hospitals)
+
             adapter.notifyDataSetChanged()
             binding.recyclerView.adapter = adapter
-
         })
         viewModel.getHospitals()
     }

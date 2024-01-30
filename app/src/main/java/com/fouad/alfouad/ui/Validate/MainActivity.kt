@@ -6,53 +6,50 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.fouad.alfouad.Adapter.HospitalAdapter
-import com.fouad.alfouad.HospitalPojoO
 import com.fouad.alfouad.Model.User
 import com.fouad.alfouad.Network.Data
 import com.fouad.alfouad.R
-import com.fouad.alfouad.ViewModel.HospitalViewModel
 import com.fouad.alfouad.databinding.ActivityMainBinding
 import com.fouad.alfouad.ui.Services.HospitalActivity
 import com.fouad.alfouad.ui.Splash.HomeActivity
 import org.json.JSONException
 import org.json.JSONObject
 
-@Suppress("DEPRECATION")
+@Suppress("DEPRECATION", "UNREACHABLE_CODE")
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     private lateinit var binding: ActivityMainBinding
     private lateinit var email:String
-    private lateinit var password:String
+    private lateinit var userId:String
+    private lateinit var name:String
     private lateinit var progressDialog: ProgressDialog
-
-    private val blogHospital = mutableListOf<HospitalPojoO>()
+//    private lateinit var userGmail:String
+    private lateinit var password_:String
+    private lateinit var email_:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        email = binding.email.text.toString()
-        password = binding.password.text.toString()
+//        email_ = binding.email.text.toString()
+//        password_ = binding.password.text.toString()
         progressDialog = ProgressDialog(this)
 //        response_()
 
         binding.btnSkip.setOnClickListener{
-            val intent = Intent(this, HospitalActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             Toast.makeText(this, "New Account..", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         }
 
 
         binding.login.setOnClickListener {
+
             login()
         }
 
@@ -64,15 +61,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun login() {
+
+//        Log.e("Request : ", " password $password_   \n  email.. $email_")
         starProgress()
-        val email = binding.email.text.toString()
-        var password = binding.password.text.toString()
-        password ="1234"
-        if(password=="1234") {
+         email_ = binding.email.text.toString()
+         password_ = binding.password.text.toString()
+
+//        password_ ="1234"
+        if(password_=="1234") {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
-        if(email=="") {
+        if(email_=="") {
             progressDialog.dismiss()
             Toast.makeText(this, "ادخل رقم الهاتف", Toast.LENGTH_SHORT).show()
         }
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                         val loginresponse = obj.getString("opreation")
                         val opreation = loginresponse.toString().trim()
                         val jsonArrayInfo = obj.getJSONArray("response")
-                        Log.e("response","$opreation")
+                        Log.e("response opreation : ", obj.toString())
 
                         val size: Int = jsonArrayInfo.length()
                         for (i in 0 until size) {
@@ -105,10 +105,18 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                             )
                             Log.e("User", "Name " + user.name)
                             Log.e("User", "Id " + user.id)
+                            Log.e("User", "Gmail " + user.email)
+                            Log.e("User", "Name " + user.name)
+                            userId=user.id
+                            email=user.email
+                            name=user.name
+
                         }
                         if(opreation=="true") {
                             val intent = Intent(this, HomeActivity::class.java)
-                            Toast.makeText(this,"مرحباٌ",Toast.LENGTH_SHORT).show()
+                            intent.putExtra("id",userId)
+                            intent.putExtra("email",email)
+                            intent.putExtra("name",name)
                             startActivity(intent)
                            }
                         if(opreation=="false"){
@@ -127,10 +135,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 override fun getParams(): Map<String, String> {
                     val params = HashMap<String, String>()
                     params["action"] = "login"
-                    params["password"] = password
-                    params["email"] = email
+                    params["password"] = password_.trim()
+                    params["email"] = email_.trim()
                     return params //n
                 }
+
             }
         queue.add(request)
     }

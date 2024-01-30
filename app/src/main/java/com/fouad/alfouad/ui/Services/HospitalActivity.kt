@@ -11,7 +11,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.fouad.alfouad.Adapter.HospitalAdapter
-import com.fouad.alfouad.Hospital
+import com.fouad.alfouad.Model.hospital.HospitalBojo
 import com.fouad.alfouad.Network.Data
 import com.fouad.alfouad.R
 import com.fouad.alfouad.databinding.ActivityHospitalBinding
@@ -23,7 +23,7 @@ class HospitalActivity :AppCompatActivity(R.layout.activity_hospital){
     lateinit var binding: ActivityHospitalBinding
     private lateinit var manager : RecyclerView.LayoutManager
     private lateinit var layoutManager: RecyclerView.LayoutManager
-    private  val hospitalList: ArrayList<Hospital> = ArrayList()
+    private  val hospitalList: ArrayList<com.fouad.alfouad.Response> = ArrayList()
     private lateinit var adapter: HospitalAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +58,7 @@ private  fun setupLayout(){
         val queue = Volley.newRequestQueue(this@HospitalActivity)
         val request: StringRequest =
             object :
-                StringRequest(Request.Method.GET, Data.show_hospital,
+                StringRequest(Request.Method.GET, Data.hospitalBojo,
                     Response.Listener<String?> { response ->
                         try {
                             Log.e("Response", response)
@@ -70,16 +70,16 @@ private  fun setupLayout(){
 
                             for (i in 0 until size) {
                                 val jsonObjectDetails: JSONObject = jsonArrayInfo.getJSONObject(i)
-                                val hospital = Hospital(
-                                    jsonObjectDetails.getString("id"),
-                                    jsonObjectDetails.getString("dis"),
-                                    jsonObjectDetails.getString("address"),
-                                    jsonObjectDetails.getString("phone"),
-                                    jsonObjectDetails.getString("status"),
-                                    jsonObjectDetails.getString("local_id"),
-                                    jsonObjectDetails.getJSONObject("local_hospital"),
-                                    jsonObjectDetails.getJSONObject("hospitals"),
-                                )
+//                                val hospital = Hospital(
+//                                    jsonObjectDetails.getString("id"),
+//                                    jsonObjectDetails.getString("dis"),
+//                                    jsonObjectDetails.getString("address"),
+//                                    jsonObjectDetails.getString("phone"),
+//                                    jsonObjectDetails.getString("status"),
+//                                    jsonObjectDetails.getString("local_id"),
+//                                    jsonObjectDetails.getJSONObject("local_hospital"),
+//                                    jsonObjectDetails.getJSONObject("hospitals"),
+//                                )
 //                                adapter = HospitalAdapter(this.applicationContext,hospitalList)
 //                                binding.hospitalRecycler.adapter = adapter
 //                                hospitalList.add(hospital)

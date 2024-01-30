@@ -1,14 +1,14 @@
 package com.fouad.alfouad.Adapter
 
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.fouad.alfouad.Clinck
-import com.fouad.alfouad.ClinkResponse
+import com.fouad.alfouad.Model.clink.Clink
 import com.fouad.alfouad.databinding.ClincItemBinding
 
-class ClinkAdapter(private val clinkList: List<ClinkResponse>):RecyclerView.Adapter<ClinkAdapter.ClinkViewHolder>() {
+class ClinkAdapter(private val clinkList: List<Clink>):RecyclerView.Adapter<ClinkAdapter.ClinkViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClinkViewHolder {
 
@@ -18,9 +18,8 @@ class ClinkAdapter(private val clinkList: List<ClinkResponse>):RecyclerView.Adap
         )
     }
 
-    override fun getItemCount(): Int {
-        return  clinkList.size
-    }
+    override fun getItemCount()= clinkList.size
+
 
     override fun onBindViewHolder(holder: ClinkViewHolder, position: Int) {
         val data=clinkList[position]
@@ -28,15 +27,16 @@ class ClinkAdapter(private val clinkList: List<ClinkResponse>):RecyclerView.Adap
 
     }
     class ClinkViewHolder(val binding: ClincItemBinding):RecyclerView.ViewHolder(binding.root){
-         fun bind(clink: ClinkResponse){
-             binding.local.text=clink.local?.name
-             if (clink.status!!.equals("1")){
-                 binding.status.text="يعمل"
-             }else{
-                 binding.imgStatus.setColorFilter(Color.RED)
-                 binding.status.text="لا يعمل"
-             }
-             binding.listItem=clink
+         fun bind(clink: Clink){
+//             binding.local.text=clink.local?.name
+//             Log.e("clink Status","${clink.status}")
+//             if (clink.status!!.equals("1")){
+//                 binding.status.text="يعمل"
+//             }else{
+//                 binding.imgStatus.setColorFilter(Color.RED)
+//                 binding.status.text="لا يعمل"
+//             }
+//             binding.listItem=clink
         }
 
     }

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.fouad.alfouad.R
 import com.fouad.alfouad.databinding.HomeFragmentBinding
 import com.fouad.alfouad.ui.Services.ClinkActivity
+import com.fouad.alfouad.ui.Services.DoctorInterView
 import com.fouad.alfouad.ui.Services.PharmacyActivity
 
 @Suppress("DEPRECATION")
@@ -20,10 +21,13 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
 
    private lateinit var binding: HomeFragmentBinding
    lateinit var progressDialog:ProgressDialog
-
+    private  lateinit var userId:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=HomeFragmentBinding.inflate(layoutInflater)
+        userId = arguments?.getString("id").toString()
+
+        Log.e("Home Fragment onCreate","user id :  $userId")
         progressDialog = ProgressDialog(activity)
     }
 
@@ -46,13 +50,19 @@ class HomeFragment:Fragment(R.layout.home_fragment) {
             val intent=Intent(view.context,PharmacyActivity::class.java)
             startActivity(intent)
         }
+            binding.interviewes.setOnClickListener{
+//            val intent=Intent(view.context,DoctorInterView::class.java)
+//                intent.putExtra("id", userId)
+
+                Log.e("Home Fragment send id","id :  $userId")
+//            startActivity(intent)
+        }
         return view
     }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-     Log.e("","")
        }
 
 }

@@ -74,10 +74,10 @@
                         </ImageView>
 
                         <Button
-                            android:id="@+id/Paramedic_btn"
+                            android:id="@+id/interviewes"
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="المرضي"
+                            android:text="حجز مواعيد"
                             android:textColor="#fff"
                             android:backgroundTint="#110022"
                             android:textStyle="bold" />
