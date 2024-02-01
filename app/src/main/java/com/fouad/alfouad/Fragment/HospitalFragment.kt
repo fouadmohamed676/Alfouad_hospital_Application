@@ -74,11 +74,16 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
     @SuppressLint("NotifyDataSetChanged")
 
     fun response (){
+        progressDialog.setTitle("Loading..")
+        progressDialog.show()
+        progressDialog.setCancelable(false)
         viewModel.hospitals.observe(this, Observer {
-
                 hospitals->
             blogHospital.addAll(hospitals)
+
             adapter = HospitalAdapter(this.requireContext(),hospitals)
+            adapter.notifyDataSetChanged()
+            binding.recyclerView.adapter = adapter
 //                object :HospitalAdapter.ItemClickListener{
 //                override fun onItemClickListener(hospital: Response) {
 //                    val intent = Intent(requireContext(), HospitalDetailsActivity::class.java)
@@ -89,10 +94,10 @@ class HospitalFragment:Fragment(R.layout.hospital_fragment) {
 //                }
 
 
-            adapter.notifyDataSetChanged()
-            binding.recyclerView.adapter = adapter
         })
+
         viewModel.getHospitals()
+        progressDialog.dismiss()
     }
 
 }

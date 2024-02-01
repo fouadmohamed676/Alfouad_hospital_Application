@@ -3,16 +3,16 @@ package com.fouad.alfouad.Adapter
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import androidx.recyclerview.widget.RecyclerView
-import com.fouad.alfouad.Fragment.EXTRA
 import com.fouad.alfouad.Response
 import com.fouad.alfouad.databinding.HospitalItemBinding
 import com.fouad.alfouad.ui.Services.Details.HospitalDetailsActivity
-import java.util.Objects
+import org.json.JSONObject
+
 
 //class HospitalAdapter(private val context: Context,private val hospital_list: List<Response>,private val itemClickListener: ItemClickListener)
 //    :RecyclerView.Adapter<HospitalAdapter.HospitalViewHolder>(){
@@ -41,7 +41,9 @@ class HospitalAdapter(private val context: Context,private val hospital_list: Li
             binding.splizeetion.text=hospital.specialization.name
             binding.local.text= hospital.local.name
 
-            Log.e("hospital.id","${hospital.id}")
+
+//            Log.e("hospital doctor","${hospital.doctor}")
+
             if ((hospital.status == "1")){
                 binding.imgStatus.setColorFilter(Color.GREEN)
                 binding.status.text="يعمل"
@@ -54,12 +56,18 @@ class HospitalAdapter(private val context: Context,private val hospital_list: Li
 //
 //                itemClickListener.onItemClickListener(hospital)
 //            }
+
+
+
             binding.btnDoctors.setOnClickListener{
                 val intent = Intent(itemView.context, HospitalDetailsActivity::class.java)
-                intent.putExtra(EXTRA,hospital)
-
-                Log.e("putExtra : "," $hospital")
-//                intent.putExtra("EXTRA",hospital)
+                intent.putExtra("id", hospital.id)
+                intent.putExtra("name",hospital.dis)
+                intent.putExtra("phone",hospital.phone)
+                intent.putExtra("address",hospital.address)
+                intent.putExtra("local",hospital.local.name)
+                intent.putExtra("price",hospital.enter_price)
+                intent.putExtra("specialization",hospital.specialization.name)
                 itemView.context.startActivity(intent)
             }
         }

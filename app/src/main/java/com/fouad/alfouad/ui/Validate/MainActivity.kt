@@ -16,6 +16,7 @@ import com.fouad.alfouad.Model.User
 import com.fouad.alfouad.Network.Data
 import com.fouad.alfouad.R
 import com.fouad.alfouad.databinding.ActivityMainBinding
+import com.fouad.alfouad.ui.Services.Details.HospitalDetailsActivity
 import com.fouad.alfouad.ui.Services.HospitalActivity
 import com.fouad.alfouad.ui.Splash.HomeActivity
 import org.json.JSONException

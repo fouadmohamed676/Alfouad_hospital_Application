@@ -11,8 +11,10 @@ data class HospitalBojo(
 
 data class Doctor(
     val id: Int,
-    val name: String
-):Serializable
+    val name: String,
+    val price_interview: String
+)
+
 data class Local(
     val id: Int,
     val name: String
