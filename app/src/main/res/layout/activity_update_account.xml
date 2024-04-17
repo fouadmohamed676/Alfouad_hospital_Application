@@ -11,119 +11,126 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_500"
-        android:fontFamily="@font/jana"
-        android:gravity="right"
-        android:padding="8dp"
-        android:text="تسجيل دخول"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        tools:ignore="MissingConstraints" />
+
+
+<TextView
+    android:id="@+id/textView4"
+    android:text="تعديل الحساب"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_700"
+    android:padding="10dp"
+    android:textColor="@color/white"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:ignore="MissingConstraints"   />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView4">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <View
-            android:id="@+id/imageView5"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_margin="10dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+            <ImageView
+                android:id="@+id/imageView5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="E-mail"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
+                android:layout_height="180dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="8sp"
+                android:padding="5dp"
+                android:src="@drawable/png_register_logo" />
 
-                android:inputType="textEmailSubject"
-                tools:ignore="HardcodedText,RtlHardcoded"
-                />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_person_reg"
+                    android:ems="10"
+                    android:fontFamily="@font/jana"
+                    android:hint=" اسم المستخدم"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_phone_reg"
+                    android:ems="10"
+                    android:hint=" رقم الهاتف"
+                    android:inputType="phone"
+                    android:maxLength="13"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/reg_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_email_"
+                    android:ems="10"
+                    android:hint=" الايميل"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/register_"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Password"
-                android:gravity="left"
-                android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:inputType="textPassword"
-                tools:ignore="HardcodedText,RtlHardcoded"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/login_"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:width="170dp"
-            android:background="@drawable/bt_corner"
-            android:fontFamily="@font/jana"
-            android:text="تسجيل الدخول"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/register"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@color/transparent"
-            android:fontFamily="@font/jana"
-            android:text="إنشاء حساب"
-            android:textColor="@color/purple_200"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_skip"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@color/transparent"
-            android:fontFamily="@font/jana"
-            android:text="تخطي"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints" />
+                android:layout_marginTop="20dp"
+                android:width="170dp"
+                android:background="@drawable/bt_corner"
+                android:fontFamily="@font/jana"
+                android:text="تأكيد "
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
     </LinearLayout>
+</ScrollView>
+
 </LinearLayout>

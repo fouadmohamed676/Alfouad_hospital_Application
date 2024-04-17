@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.Services.DoctorActivity"
+    tools:ignore="Orientation"
+    android:orientation="vertical"
+    android:background="@color/gray"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="listValue"-->
+<!--            type="com.fouad.alfouad.Model.doctor.Response" />-->
+<!--    </data>-->
+
+    <TextView
+        android:id="@+id/textView5"
+        android:text="الاطباء"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_700"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="80sp"
+            android:layout_height="80sp"
+            android:layout_marginTop="10sp"
+            android:src="@drawable/png_register_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="18sp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text=""
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:text=""
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@+id/sp"
+            app:layout_constraintHorizontal_bias="0.228"
+            app:layout_constraintStart_toStartOf="@+id/sp"
+            app:layout_constraintTop_toBottomOf="@+id/sp"
+            tools:ignore="HardcodedText,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/mon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SDG"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/price"
+            app:layout_constraintEnd_toEndOf="@+id/sp"
+            app:layout_constraintStart_toEndOf="@+id/price"
+            app:layout_constraintTop_toTopOf="@+id/price"
+            tools:ignore="HardcodedText,MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bottom_screen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+            <TextView
+                android:id="@+id/dayTv"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="right"
+                android:layout_marginStart="7dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="أيام العمل"
+                android:padding="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_price"
+                tools:ignore="HardcodedText,MissingConstraints" />
+
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycle_days_doctor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5sp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/dayTv">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
+            </ScrollView>
+
+
+            <TextView
+                android:id="@+id/rej"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5sp"
+                android:layout_gravity="right"
+                android:layout_marginRight="7dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:padding="3dp"
+                android:text="المستشفيات"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycle_days_doctor"
+                tools:ignore="MissingConstraints" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_hospitals_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/hospital_docotrs_item"
+                android:orientation="horizontal"
+                android:layout_margin="5sp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rej" />
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

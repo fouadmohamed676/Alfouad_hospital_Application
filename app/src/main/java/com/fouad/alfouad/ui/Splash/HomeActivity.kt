@@ -1,95 +1,107 @@
 package com.fouad.alfouad.ui.Splash
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import androidx.fragment.app.Fragment
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.fouad.alfouad.Fragment.HomeFragment
 import com.fouad.alfouad.Fragment.HospitalFragment
 import com.fouad.alfouad.Fragment.SettingFragment
 import com.fouad.alfouad.R
-
 import com.fouad.alfouad.databinding.ActivityHomeBinding
 
-class HomeActivity :AppCompatActivity(R.layout.activity_home){
+@Suppress("DEPRECATION")
+class HomeActivity : AppCompatActivity(R.layout.activity_home) {
+
+
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var userId:String
-    private lateinit var email:String
-    private lateinit var name:String
-    private val settingFragment = SettingFragment()
-    private val hospitalFragment = HospitalFragment()
     private val homeFragment = HomeFragment()
-    val  bundle = Bundle()
+    private val hospitalFragment = HospitalFragment()
+    private val settingFragment = SettingFragment()
+    var bundle = Bundle()
+    private lateinit var phone: String
+    private lateinit var userId: String
+    private lateinit var email: String
+    private lateinit var name: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        userId = intent.getStringExtra("id").toString()
+
+        phone = intent.getStringExtra("phone").toString()
+        userId = intent.getStringExtra("user_id").toString()
         email = intent.getStringExtra("email").toString()
         name = intent.getStringExtra("name").toString()
+        Log.e("name HomeActivity",name).toString()
+        replaceFragment(homeFragment)
 
-        replaceFragment(HomeFragment())
-            binding.bottomNavigationView.setOnItemSelectedListener {
-                when (it.itemId) {
-                    R.id.home_nav ->{
-                        replaceFragment(HomeFragment())
-                        homeFragment.arguments = bundle
-                        bundle.putString("id", userId)
-                        bundle.putString("email", email)
-                        bundle.putString("name", name)
-                        Log.e("","Home Fragment homeActivity $userId")
-                        replaceFragment(homeFragment)
-                        supportFragmentManager.beginTransaction()
-                        .replace((R.id.frame_layout),homeFragment)
+        homeFragment.arguments = bundle
+        bundle.putString("phone", phone)
+        bundle.putString("user_id", userId).toString()
+        bundle.putString("email", email).toString()
+        bundle.putString("name", name).toString()
+        binding.bottomNavigationView.setOnItemSelectedListener {
+
+            settingFragment.arguments = bundle
+            when (it.itemId) {
+                R.id.home -> {
+                    homeFragment.arguments = bundle
+                    supportFragmentManager.beginTransaction()
+                        .replace((R.id.frame_layout), homeFragment)
                         .commitNow()
-                    }
-                    R.id.hospital_nav ->{
-                        bundle.putString("id", userId)
-                        bundle.putString("email", email)
-                        bundle.putString("name", name)
-                        Log.e("","hospital Fragment homeActivity $userId")
-                        replaceFragment(HospitalFragment())
-                        hospitalFragment.arguments = bundle
-                        replaceFragment(hospitalFragment)
-                        supportFragmentManager.beginTransaction()
-                        .replace((R.id.frame_layout),hospitalFragment)
-                        .commitNow()
-                    }
-                    R.id.setting_nav ->{
-                        bundle.putString("id", userId)
-                        bundle.putString("email", email)
-                        bundle.putString("name", name)
-                        Log.e("","SettingFragment homeActivity $userId")
-                        replaceFragment(SettingFragment())
-                        settingFragment.arguments = bundle
-                        replaceFragment(settingFragment)
-                        supportFragmentManager.beginTransaction()
-                        .replace((R.id.frame_layout),settingFragment)
-                        .commitNow()
-                    }
                 }
-                true
 
+                R.id.hospital -> {
+
+                    hospitalFragment.arguments = bundle
+                    supportFragmentManager.beginTransaction()
+                        .replace((R.id.frame_layout), hospitalFragment)
+                        .commitNow()
+                }
+
+                R.id.setting -> {
+                    settingFragment.arguments = bundle
+                    supportFragmentManager.beginTransaction()
+                        .replace((R.id.frame_layout), settingFragment)
+                        .commitNow()
+                }
+            }
+            true
         }
     }
-    @SuppressLint("SuspiciousIndentation")
-    private  fun replaceFragment(fragment: Fragment?=null){
-        bundle.putString("id",userId)
-        bundle.putString("email",email)
-        bundle.putString("name",name)
 
-        Log.e("replaceFragment ","value id :  $userId")
-        Log.e("replaceFragment ","value email:  $email")
-        Log.e("replaceFragment ","value name:  $name")
-        if(fragment !=null) {
-            bundle.putString("id",userId)
-            bundle.putString("email",email)
-            bundle.putString("name",name)
-            val fragmentManager = supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.frame_layout, fragment)
-            fragmentTransaction.commit()
-        }
+
+    private fun replaceFragment(fragment: HomeFragment) {
+
+        val transaction = supportFragmentManager.beginTransaction()
+        settingFragment.arguments = bundle
+        homeFragment.arguments = bundle
+        hospitalFragment.arguments = bundle
+        transaction.replace(R.id.frame_layout, fragment,phone)
+        transaction.commit()
     }
+
+    private var doubleBackToExitPressedOnce: Boolean = false
+
+    @Suppress("OVERRIDE_DEPRECATION")
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            finish()
+            finishAffinity()
+            super.finish()
+            return
+        }
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "إضغط مره اخرى للخروج", Toast.LENGTH_SHORT).show()
+        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            doubleBackToExitPressedOnce = false
+        }, 2000)
+    }
+
 }
+
+
 

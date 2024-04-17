@@ -3,8 +3,6 @@ package com.fouad.alfouad
 import com.fouad.alfouad.Model.hospital.Doctor
 import com.fouad.alfouad.Model.hospital.Local
 import com.fouad.alfouad.Model.hospital.Specialization
-import org.json.JSONArray
-import java.io.Serializable
 
 data class Response (
     val address: String,

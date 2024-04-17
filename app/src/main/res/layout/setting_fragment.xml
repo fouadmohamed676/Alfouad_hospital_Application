@@ -1,414 +1,537 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layoutDirection="ltr"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Fragment.SettingFragment">
-    <TextView
-        android:id="@+id/fragment_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_700"
-        android:text="الضبط"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="HardcodedText,MissingConstraints" />
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_500"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr"
+        tools:context=".Fragment.SettingFragment">
 
-        <Button
-            android:id="@+id/update_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_200"
-            android:text="تعديل حساب"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText,MissingConstraints" />
+
         <TextView
+            android:id="@+id/_title"
+            android:text="حسابي"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:fontFamily="@font/jana"
-            android:gravity="right"
-            android:padding="5dp"
-            android:text="حسابي"
+            android:background="@color/purple_700"
+            android:padding="10dp"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/update_account"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            tools:ignore="MissingConstraints"  />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:gravity="right"
-        android:orientation="vertical"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_title"
-        tools:ignore="MissingConstraints,RtlHardcoded">
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/constraintLayout2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/purple_700"-->
+<!--            android:padding="10dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:ignore="MissingConstraints">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgBack"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                  -->
+<!--                android:src="@drawable/ic_left"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:ignore="ContentDescription" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/bk"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="right"-->
+<!--                android:fontFamily="@font/jana"-->
+<!--                android:gravity="right"-->
+
+<!--                android:text="رجوع"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="18sp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/imgBack"-->
+<!--                app:layout_constraintStart_toEndOf="@+id/imgBack"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/imgBack"-->
+<!--                tools:ignore="HardcodedText,MissingConstraints,RtlHardcoded" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/_title"
+            tools:ignore="MissingConstraints,RtlHardcoded">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_current"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/imageViewd"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/png_register_logo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/name_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/jana"
+                    android:gravity="left"
+                    android:text=""
+                    android:textColor="@color/gray"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="@+id/email"
+                    app:layout_constraintTop_toBottomOf="@+id/email"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/jana"
+                    android:gravity="right"
+                    android:padding="2dp"
+                    android:text="Fouad Mohamed"
+                    android:textColor="@color/gray"
+                    android:textSize="12dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewd"
+                    app:layout_constraintTop_toTopOf="@+id/imageViewd"
+                    tools:ignore="HardcodedText,SpUsage" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:id="@+id/myInterViews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:foregroundGravity="left"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_left_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/forwards"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/jana"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:text="الملف الشخصي"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="1dp"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:layout_marginBottom="8dp"-->
+            <!--            android:background="#6C6C6A" />-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <TextView
+                    android:id="@+id/add_interView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/jana"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:text="إضافة مقابلة "
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:foregroundGravity="right"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_left_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <TextView
+                    android:id="@+id/tvBestHospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/jana"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:text="افضل المستشفيات"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:foregroundGravity="right"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_left_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <TextView
+                    android:id="@+id/tvBestDoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:fontFamily="@font/jana"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:text="افضل الاطباء"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText,RtlHardcoded" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:foregroundGravity="right"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_left_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="1dp"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:layout_marginBottom="8dp"-->
+            <!--            android:background="#6C6C6A" />-->
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/update_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:text="تعديل الحساب"
+                    android:textColor="@color/purple_200"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:foregroundGravity="right"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_left_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="1dp"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:layout_marginBottom="8dp"-->
+            <!--            android:background="#6C6C6A"/>-->
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_gravity="right"-->
+            <!--            android:gravity="right"-->
+            <!--            android:orientation="horizontal"-->
+            <!--            android:padding="5dp"-->
+            <!--            tools:ignore="UseCompoundDrawables">-->
+
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/portfolio"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="right"-->
+            <!--                android:layout_marginRight="5dp"-->
+            <!--                android:fontFamily="@font/jana"-->
+            <!--                android:gravity="right"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:text="المحفظة"-->
+            <!--                android:textColor="@color/purple_200"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:textStyle="bold"-->
+            <!--                tools:ignore="HardcodedText" />-->
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="right"-->
+            <!--                android:foregroundGravity="right"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/ic_timer"-->
+            <!--                tools:ignore="ContentDescription" />-->
+
+            <!--        </LinearLayout>-->
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="1dp"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:layout_marginBottom="8dp"-->
+            <!--            android:background="#6C6C6A" />-->
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_gravity="right"-->
+            <!--            android:gravity="right"-->
+            <!--            android:orientation="horizontal"-->
+            <!--            android:padding="5dp"-->
+            <!--            tools:ignore="UseCompoundDrawables">-->
+
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/purcheses"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="right"-->
+            <!--                android:layout_marginRight="5dp"-->
+            <!--                android:fontFamily="@font/jana"-->
+            <!--                android:gravity="right"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:text="مشترياتي"-->
+            <!--                android:textColor="@color/purple_200"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:textStyle="bold"-->
+            <!--                tools:ignore="HardcodedText" />-->
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="right"-->
+            <!--                android:foregroundGravity="right"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/ic_shopping"-->
+            <!--                tools:ignore="ContentDescription" />-->
+
+            <!--        </LinearLayout>-->
+
+
+            <!--        <View-->
+            <!--            android:id="@+id/view"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="1dp"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:layout_marginBottom="8dp"-->
+            <!--            android:background="#6C6C6A" />-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <TextView
+                    android:id="@+id/about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:gravity="right"
+                    android:padding="3dp"
+                    android:text="تواصل معنا"
+                    android:textColor="@color/purple_200"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:foregroundGravity="right"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_left_"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--        <View-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="1dp"-->
+            <!--            android:layout_margin="8dp"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:layout_marginBottom="8dp"-->
+            <!--            android:background="#6C6C6A" />-->
+
+             </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_margin="5dp"
-                android:src="@drawable/png_register_logo"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/name_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:fontFamily="@font/jana"
-                android:gravity="left"
-                android:text="****"
-                android:textColor="@color/gray"
-                android:textSize="12sp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toStartOf="@+id/email"
-                app:layout_constraintTop_toBottomOf="@+id/email"
-                tools:ignore="HardcodedText,RtlHardcoded" />
-
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:fontFamily="@font/jana"
-                android:gravity="right"
-                android:padding="2dp"
-                android:text="gmail"
-                android:textColor="@color/gray"
-                android:textSize="12dp"
-                android:textStyle="normal"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                tools:ignore="HardcodedText,SpUsage" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <LinearLayout
-
-            android:id="@+id/myInterViews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="5dp"
-            android:gravity="right"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            tools:ignore="UseCompoundDrawables">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="5dp"
-                android:fontFamily="@font/jana"
-                android:gravity="right"
-                android:padding="3dp"
-                android:text="متابعة الاطباء"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,RtlHardcoded" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_tag_black"
-                tools:ignore="ContentDescription" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#6C6C6A" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="5dp"
-            android:gravity="right"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            tools:ignore="UseCompoundDrawables">
-
-
-            <TextView
-                android:id="@+id/add_inter_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="5dp"
-                android:fontFamily="@font/jana"
-                android:gravity="right"
-                android:padding="3dp"
-                android:text="حجز مقابله"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText,RtlHardcoded" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_add_interview"
-                tools:ignore="ContentDescription" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#6C6C6A" />
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:gravity="right"
             android:orientation="horizontal"
             android:padding="5dp"
-            tools:ignore="UseCompoundDrawables">
-
-            <TextView
-                android:id="@+id/plance_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="5dp"
-                android:gravity="right"
-                android:padding="3dp"
-                android:text="الامراض المزمنه"
-                android:textColor="@color/purple_200"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_credit_card"
-                tools:ignore="ContentDescription" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#6C6C6A"/>
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="right"-->
-<!--            android:gravity="right"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:padding="5dp"-->
-<!--            tools:ignore="UseCompoundDrawables">-->
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints,UseCompoundDrawables">
 
 
-<!--            <TextView-->
-<!--                android:id="@+id/portfolio"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:layout_marginRight="5dp"-->
-<!--                android:fontFamily="@font/jana"-->
-<!--                android:gravity="right"-->
-<!--                android:padding="3dp"-->
-<!--                android:text="المحفظة"-->
-<!--                android:textColor="@color/purple_200"-->
-<!--                android:textSize="14sp"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:ignore="HardcodedText" />-->
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:foregroundGravity="right"-->
-<!--                android:padding="3dp"-->
-<!--                android:src="@drawable/ic_timer"-->
-<!--                tools:ignore="ContentDescription" />-->
-
-<!--        </LinearLayout>-->
-
-<!--        <View-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:layout_margin="8dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginBottom="8dp"-->
-<!--            android:background="#6C6C6A" />-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="right"-->
-<!--            android:gravity="right"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:padding="5dp"-->
-<!--            tools:ignore="UseCompoundDrawables">-->
-
-
-<!--            <TextView-->
-<!--                android:id="@+id/purcheses"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:layout_marginRight="5dp"-->
-<!--                android:fontFamily="@font/jana"-->
-<!--                android:gravity="right"-->
-<!--                android:padding="3dp"-->
-<!--                android:text="مشترياتي"-->
-<!--                android:textColor="@color/purple_200"-->
-<!--                android:textSize="14sp"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:ignore="HardcodedText" />-->
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="right"-->
-<!--                android:foregroundGravity="right"-->
-<!--                android:padding="3dp"-->
-<!--                android:src="@drawable/ic_shopping"-->
-<!--                tools:ignore="ContentDescription" />-->
-
-<!--        </LinearLayout>-->
-
-
-<!--        <View-->
-<!--            android:id="@+id/view"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:layout_margin="8dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginBottom="8dp"-->
-<!--            android:background="#6C6C6A" />-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:gravity="right"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            tools:ignore="UseCompoundDrawables">
-
-
-            <TextView
-                android:id="@+id/about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="5dp"
-                android:gravity="right"
-                android:padding="3dp"
-                android:text="تواصل معنا"
-                android:textColor="@color/purple_200"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_info"
-                tools:ignore="ContentDescription" />
-
-        </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#6C6C6A" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:gravity="right"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            tools:ignore="UseCompoundDrawables">
-
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/log_out"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="right"
-                android:padding="3dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="5dp"
                 android:text=" تسجيل خروج"
                 android:textColor="@color/red"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:foregroundGravity="right"
-                android:padding="3dp"
-                android:src="@drawable/ic_logout_24"
-                tools:ignore="ContentDescription" />
+            <!--            <ImageView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="right"-->
+            <!--                android:foregroundGravity="right"-->
+            <!--                android:padding="3dp"-->
+            <!--                android:src="@drawable/ic_left"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent"-->
+            <!--                tools:ignore="ContentDescription" />-->
 
-        </LinearLayout>
-    </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

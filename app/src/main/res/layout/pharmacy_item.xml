@@ -2,16 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="listItem"-->
-<!--            type=/>-->
-<!--    </data>-->
-
-
-    <LinearLayout
+    <data>
+        <variable
+            name="listItem"
+            type="com.fouad.alfouad.ResponsePharmacy"/>
+    </data>
+    <androidx.cardview.widget.CardView
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3sp"
         android:orientation="vertical"
         android:gravity="right"
         android:layout_width="match_parent"
@@ -19,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_current"
             android:orientation="horizontal"
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="{listItem.name}"
+                        android:text="@{listItem.name}"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-                        android:text="{listItem.status}"
+                        android:text="status"
                         app:layout_constraintBottom_toBottomOf="@+id/img_status"
                         app:layout_constraintStart_toEndOf="@+id/img_status"
                         app:layout_constraintTop_toTopOf="@+id/img_status"
@@ -101,7 +100,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_marginEnd="8dp"
-                        android:text="{listItem.phone}"
+                        android:text="@{listItem.phone}"
                         app:layout_constraintBottom_toBottomOf="@+id/imageVie4"
                         app:layout_constraintEnd_toStartOf="@+id/imageVie4"
                         app:layout_constraintTop_toTopOf="@+id/imageVie4"
@@ -132,11 +131,11 @@
                     tools:ignore="RtlHardcoded,UseCompoundDrawables">
 
                     <TextView
-                        android:id="@+id/splize"
+                        android:id="@+id/tvLocal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
-                        android:text="{listItem.title}"
+                        android:text="@{listItem.local.name}"
                         app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
                         app:layout_constraintEnd_toStartOf="@+id/imaeView4"
                         app:layout_constraintTop_toTopOf="@+id/imaeView4"
@@ -152,9 +151,8 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/ic_location_"
                         tools:ignore="ContentDescription" />
-
                 </LinearLayout>
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout_"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -162,16 +160,15 @@
                     android:gravity="right"
                     android:orientation="horizontal"
                     tools:ignore="RtlHardcoded,UseCompoundDrawables">
+
                     <TextView
                         android:id="@+id/time_"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="{listItem.time}"
-                        app:layout_constraintBottom_toBottomOf="@+id/imaeView4"
-                        app:layout_constraintEnd_toStartOf="@+id/imaeView4"
-                        app:layout_constraintTop_toTopOf="@+id/imaeView4"
-                        app:layout_constraintVertical_bias="0.333"
+                        android:text="@{listItem.title}"
+                        app:layout_constraintBottom_toBottomOf="@+id/s"
+                        app:layout_constraintEnd_toStartOf="@+id/s"
+                        app:layout_constraintTop_toTopOf="@+id/s"
                         tools:ignore="HardcodedText" />
                     <ImageView
                         android:id="@+id/s"
@@ -184,8 +181,21 @@
                         app:srcCompat="@drawable/ic_tag"
                         tools:ignore="ContentDescription" />
 
-                </LinearLayout>
+                    <Button
+                        android:id="@+id/btnDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:gravity="center"
+                        android:background="@color/transparent"
+                        android:textColor="@color/purple_700"
+                        android:text="أيام العمل"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

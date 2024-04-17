@@ -2,24 +2,25 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     >
     <data>
         <variable
             name="listItem"
             type="com.fouad.alfouad.Response"/>
     </data>
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:layout_margin="5dp"
         android:orientation="vertical"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="3sp"
         android:gravity="right"
-
-        android:layout_width="match_parent"
         tools:ignore="RtlHardcoded">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_current"
             android:orientation="horizontal"
             android:gravity="right"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -188,7 +189,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:gravity="center"
+                        android:background="@color/transparent"
                         android:layout_margin="5dp"
+                        android:textColor="@color/purple_700"
                         android:text="الأطباء"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -221,5 +224,5 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>
